@@ -26,7 +26,7 @@ const binarySearch = (array: number[], target: number): void => {
   console.log("The target doesn't exist in the array");
 }
 
-// That's the implementation with recursion to search the repeated values
+// That's the recursive binary search implementation to found the duplicated elements
 const findDuplicatedElement = (array: number[], start: number, end: number): void => {
   if (start > end) {
     console.log("The array doesn't have repeated elements");
@@ -34,9 +34,9 @@ const findDuplicatedElement = (array: number[], start: number, end: number): voi
     return;
   }
 
-  const middle = Math.floor((start + end) / 2);
+  const middle = Math.floor(((start + end) / 2));
 
-  if (array[middle] != middle + 1) {
+  if (array[middle] != middle) {
     if (middle > 0 && array[middle] == array[middle - 1]) {
       console.log("The repeated element is the: ", array[middle]);
 
@@ -48,5 +48,13 @@ const findDuplicatedElement = (array: number[], start: number, end: number): voi
 
   return findDuplicatedElement(array, middle + 1, end);
 }
+
+console.log("Initial array: ", initialArray);
+
+console.log('\n--- Basic binary search (target: 6)');
+
+binarySearch(initialArray, 6);
+
+console.log('\n--- Recursive binary search to found repeated elements');
 
 findDuplicatedElement(initialArray, 0, initialArray.length - 1);
